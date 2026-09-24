@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>face-score-kit demo</title>
+    <style>
+      :root {
+        --ink: #191817;
+        --paper: #fffcf9;
+        --muted: #6f6a64;
+        --line: #e5e0d8;
+        --accent: #e3362c;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0 auto;
+        max-width: 760px;
+        padding: 32px 20px 80px;
+        font: 15px/1.6 system-ui, -apple-system, 'PingFang SC', sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+      }
+      h1 { font-size: 22px; margin: 0 0 4px; }
+      .sub { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+      code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 16px 0;
+      }
+      .row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+      button {
+        font: inherit;
+        padding: 8px 18px;
+        border-radius: 8px;
+        border: 1px solid var(--ink);
+        background: var(--ink);
+        color: var(--paper);
+        cursor: pointer;
+      }
+      button:disabled { opacity: 0.4; cursor: not-allowed; }
+      label.confirm { font-size: 13px; color: var(--muted); }
+      .status { font-size: 13px; color: var(--muted); min-height: 20px; white-space: pre-line; }
+      .score {
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .score small { font-size: 18px; color: var(--muted); font-weight: 400; }
+      table { border-collapse: collapse; width: 100%; font-size: 13px; }
+      td, th { text-align: left; padding: 4px 8px 4px 0; border-top: 1px solid var(--line); }
+      td.num { font-family: ui-monospace, Menlo, monospace; }
+      .bar { height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+      .bar > i { display: block; height: 100%; background: var(--accent); }
+      .overlay { max-width: 100%; border-radius: 12px; border: 1px solid var(--line); }
+      pre {
+        background: #f5f2ec;
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 11px;
+        overflow: auto;
+        max-height: 420px;
+      }
+      .hidden { display: none; }
+      .muted { color: var(--muted); }
+      .noscore { color: var(--accent); font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <h1>face-score-kit</h1>
+    <p class="sub">
+      Fully client-side face analysis — rules-based score, skin signals, local
+      age/gender estimate. Photos never leave your browser.
+    </p>
+
+    <div class="panel">
+      <div class="row">
+        <input id="file" type="file" accept="image/jpeg,image/png,image/webp" />
+        <button id="analyze" disabled>Analyze</button>
+      </div>
+      <p>
+        <label class="confirm">
+          <input id="adult" type="checkbox" />
+          I confirm the photo shows an adult (18+)
+        </label>
+      </p>
+      <p class="status" id="status">Pick a clear front-facing photo, check the box, then Analyze.</p>
+    </div>
+
+    <div id="report" class="hidden">
+      <div class="panel" id="scorePanel"></div>
+      <div class="panel" id="qualityPanel"></div>
+      <div class="panel" id="skinPanel"></div>
+      <div class="panel" id="demoPanel"></div>
+      <div class="panel" id="overlayPanel"></div>
+      <div class="panel">
+        <h3>Raw AnalysisV3</h3>
+        <pre id="json"></pre>
+      </div>
+    </div>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
