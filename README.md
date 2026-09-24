@@ -115,12 +115,17 @@ demographicsConfig.modelUrl = 'https://your.cdn/genderage.onnx';
   included for research/personal convenience; check upstream terms before
   commercial deployment.
 
+Full details and links: [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+
 ## Development
 
 ```bash
-npm test         # node:test suite (74 tests) — pure rules + schema + pipeline
+npm test         # node:test suite (65 tests) — pure rules + schema + pipeline
 npm run typecheck
 npm run build    # tsc → dist/ (ESM + d.ts)
 ```
 
-License: MIT (see LICENSE for third-party asset notices).
+## License
+
+MIT — see [LICENSE](./LICENSE). Third-party components keep their own terms
+(see THIRD_PARTY_NOTICES.md).

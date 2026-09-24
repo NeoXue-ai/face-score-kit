@@ -19,13 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Third-party assets (not covered by the MIT license above):
-
-- MediaPipe Face Landmarker model + tasks-vision wasm: Google MediaPipe,
-  Apache-2.0. Loaded at runtime from pinned CDN URLs.
-- insightface GenderAge ONNX weights (public/models/genderage.onnx): derived
-  from the insightface model ecosystem. Provided for research/personal use;
-  verify the upstream license before any commercial deployment.
